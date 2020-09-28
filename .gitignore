@@ -1,0 +1,7 @@
+# created by virtualenv automatically
+bin
+coverage
+lib
+pyvenv.cfg
+Pipfile
+
