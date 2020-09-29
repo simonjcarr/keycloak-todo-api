@@ -9,6 +9,7 @@ verify_ssl = true
 fastapi = "*"
 uvicorn = "*"
 pydantic = "*"
+pyodbc = "*"
 
 [requires]
 python_version = "3.8"
