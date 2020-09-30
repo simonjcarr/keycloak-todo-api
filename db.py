@@ -7,19 +7,17 @@ def get_db_connection():
   return pyodbc.connect(f"DRIVER={{ODBC Driver 17 for SQL Server}};SERVER=tcp:{os.getenv('DB_HOST')},{os.getenv('DB_PORT')};DATABASE={os.getenv('DB_DATABASE')};UID={os.getenv('DB_USERNAME')};PWD={os.getenv('DB_PASSWORD')}")
 
 def get_cursor(cnxn):
-  print("*******Connecting to Database*********")
   cursor = cnxn.cursor()
   cursor.execute("select @@version;")
   row = cursor.fetchone()
   while row:
-    print(row[0])
     row = cursor.fetchone()
   return cursor
 
 def select_query(query):
   cursor = get_cursor(get_db_connection())
   cursor.execute(f'''
-    select * from tasks;
+    {query}
   ''' )
   columns = [column[0] for column in cursor.description]
   results = []
