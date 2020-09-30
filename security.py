@@ -6,7 +6,7 @@ import os
 load_dotenv()
 
 #configure keycloak client
-keycloak_openid = KeycloakOpenID(server_url='{os.getenv("KEYCLOAK_HOST")}/auth/',
+keycloak_openid = KeycloakOpenID(server_url=f'{os.getenv("KEYCLOAK_HOST")}/auth/',
                                  client_id=f'{os.getenv("KEYCLOAK_CLIENT_ID")}',
                                  realm_name=f'{os.getenv("KEYCLOAK_REALM")}',
                                  client_secret_key=f'{os.getenv("KEYCLOAK_CLIENT_SECRET")}')
