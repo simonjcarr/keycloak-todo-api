@@ -4,7 +4,8 @@ import os
 load_dotenv()
 
 def get_db_connection():
-  return pyodbc.connect(f"DRIVER={{ODBC Driver 17 for SQL Server}};SERVER=tcp:{os.getenv('DB_HOST')},{os.getenv('DB_PORT')};DATABASE={os.getenv('DB_DATABASE')};UID={os.getenv('DB_USERNAME')};PWD={os.getenv('DB_PASSWORD')}")
+  print("Connecting to DB Host: ", os.getenv('DB_HOST'))
+  return pyodbc.connect(f"DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={os.getenv('DB_HOST')},{os.getenv('DB_PORT')};DATABASE={os.getenv('DB_DATABASE')};UID={os.getenv('DB_USERNAME')};PWD={os.getenv('DB_PASSWORD')}")
 
 def get_cursor(cnxn):
   cursor = cnxn.cursor()

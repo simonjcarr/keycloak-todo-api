@@ -15,6 +15,7 @@ def get_user(request):
   try:
     token = request.headers["Authorization"].split()[1]
     KEYCLOAK_PUBLIC_KEY = keycloak_openid.public_key()
+    print(KEYCLOAK_PUBLIC_KEY)
     userinfo = jwt.decode(token, verify=False)
     user = {
         "roles": userinfo['resource_access'][os.getenv('KEYCLOAK_CLIENT_ID')]['roles'],
