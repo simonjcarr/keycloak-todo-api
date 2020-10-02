@@ -7,7 +7,8 @@ import security
 app = FastAPI()
 
 origins = [
-  "*"
+  "*",
+  "http://192.168.30.100:8080"
 ]
 
 app.add_middleware(
