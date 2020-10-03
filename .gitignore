@@ -4,5 +4,7 @@ coverage
 lib
 pyvenv.cfg
 .env
+*.pyc
+_pycache_
 
 
